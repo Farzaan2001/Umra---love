@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f9dce8">
+<title>For Baby Jaan & Umra ❤️</title>
+<style>
+  :root{--pink:#f7b9d0;--rose:#d85f8d;--deep:#8f315b;--cream:#fff8fb;--lav:#eadcff}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#63334a;
+    background:radial-gradient(circle at top left,#ffe7f0,transparent 45%),linear-gradient(135deg,#fff7fb,#f9eaff 55%,#ffe9f1);
+    overflow-x:hidden}
+  .floating{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+  .floating span{position:absolute;bottom:-40px;opacity:.45;animation:float 12s linear infinite;font-size:20px}
+  .floating span:nth-child(1){left:8%;animation-delay:0s}.floating span:nth-child(2){left:25%;animation-delay:3s;font-size:28px}
+  .floating span:nth-child(3){left:52%;animation-delay:6s}.floating span:nth-child(4){left:78%;animation-delay:1.5s;font-size:26px}
+  .floating span:nth-child(5){left:92%;animation-delay:8s}
+  @keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+  .wrap{position:relative;z-index:1;max-width:720px;margin:auto;padding:24px 16px 44px}
+  .hero{text-align:center;padding:28px 16px 24px}
+  .badge{display:inline-block;padding:8px 14px;border-radius:30px;background:#ffffffb8;border:1px solid #f6c8db;font-size:13px;letter-spacing:.4px}
+  h1{font-size:clamp(32px,8vw,52px);line-height:1.08;margin:18px 0 10px;color:var(--deep)}
+  h1 .heart{color:#e45c8b}
+  .sub{font-size:16px;line-height:1.7;max-width:540px;margin:0 auto;color:#87536b}
+  .card{background:#ffffffc9;border:1px solid #f5c9dc;border-radius:24px;padding:22px;margin:14px 0;box-shadow:0 12px 34px #9d52741a;backdrop-filter:blur(6px)}
+  h2{font-size:20px;color:#9a4267;margin:0 0 12px}
+  p{line-height:1.75;margin:8px 0}
+  .button-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  button{font:inherit;cursor:pointer;border:0;border-radius:16px;padding:13px 12px;color:#763d58;background:#ffe3ef;transition:transform .15s,filter .15s}
+  button:hover{transform:translateY(-2px);filter:brightness(.98)}
+  button.primary{background:linear-gradient(135deg,#ec8eb4,#d85f8d);color:white;font-weight:700}
+  .response{margin-top:14px;padding:16px;border-radius:16px;background:#fff5fa;min-height:62px;border:1px dashed #eab3cc}
+  .center{text-align:center}
+  .hug{font-size:58px;display:block;margin:8px}
+  .bigquote{font-size:18px;color:#8f315b;font-weight:600}
+  .surprise{display:none;animation:pop .4s ease}
+  @keyframes pop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+  .checklist{display:grid;gap:9px}
+  .check{display:flex;align-items:center;gap:10px;background:#fff5fa;padding:11px;border-radius:13px}
+  .check input{accent-color:#d85f8d;width:18px;height:18px}
+  .footer{text-align:center;color:#986b80;font-size:13px;padding:20px 6px}
+  .confetti{position:fixed;z-index:4;pointer-events:none;font-size:24px;animation:burst 1.5s ease-out forwards}
+  @keyframes burst{0%{transform:translateY(0) scale(.7);opacity:1}100%{transform:translateY(-150px) scale(1.5);opacity:0}}
+  @media(max-width:420px){.button-grid{grid-template-columns:1fr}.card{padding:18px}}
+</style>
+</head>
+<body>
+<div class="floating" aria-hidden="true"><span>💗</span><span>🌷</span><span>✨</span><span>💕</span><span>🫶</span></div>
+<div class="wrap">
+  <header class="hero">
+    <div class="badge">A little corner made with love 💌</div>
+    <h1>For My <span class="heart">Umra</span> 🌷</h1>
+    <p class="sub">From Farzaan, with all the love I wish I could give you in person. Distance may keep me away, but it can never stop me from caring about you. ❤️</p>
+  </header>
+
+  <section class="card center">
+    <span class="hug">🫂</span>
+    <p class="bigquote">“If I could be there right now, I'd just hold your hand, hug you close, and remind you that you don't have to handle everything alone.”</p>
+    <p>Take it slow today, my love. You deserve softness, patience, and all the care in the world.</p>
+    <button class="primary" onclick="sendHug()">Tap for a hug from Farzaan 🫂</button>
+  </section>
+
+  <section class="card">
+    <h2>Tell me how you're feeling, Baby 💗</h2>
+    <p>Choose whatever feels closest. No need to pretend you're okay.</p>
+    <div class="button-grid">
+      <button onclick="mood('pain')">🥺 I have cramps / pain</button>
+      <button onclick="mood('sad')">🌧️ My mood is low</button>
+      <button onclick="mood('tired')">😴 I feel tired</button>
+      <button onclick="mood('love')">🫶 I just need love</button>
+    </div>
+    <div id="moodReply" class="response" aria-live="polite">Whatever you're feeling is okay. I'm right here, even from far away. ❤️</div>
+  </section>
+
+  <section class="card center">
+    <h2>When you miss me… 💌</h2>
+    <p>Open a little surprise. I put some love here for you.</p>
+    <button class="primary" onclick="surprise()">Open your message ✨</button>
+    <div id="surpriseBox" class="response surprise"></div>
+    <button onclick="nextMessage()" style="margin-top:10px">Another little note 💕</button>
+  </section>
+
+  <section class="card">
+    <h2>A gentle reminder for today 🌸</h2>
+    <div class="checklist">
+      <label class="check"><input type="checkbox"> Sip some water 💧</label>
+      <label class="check"><input type="checkbox"> Rest whenever you can 🛏️</label>
+      <label class="check"><input type="checkbox"> Try a warm compress if it feels soothing ♨️</label>
+      <label class="check"><input type="checkbox"> Eat something you feel like having 🍲</label>
+      <label class="check"><input type="checkbox"> Be gentle with yourself today 💗</label>
+    </div>
+    <p style="font-size:13px;color:#986b80;margin-top:12px">If pain feels unusually severe or you feel unwell, please get medical help. Your comfort and health come first.</p>
+  </section>
+
+  <section class="card center">
+    <h2>One last thing, Umra 🌙</h2>
+    <p>You're not a burden on your difficult days. You don't have to be cheerful, reply quickly, or do anything for me. Just take care of yourself. If I could, I'd bring you your favourite snack, make you comfortable, and stay beside you.</p>
+    <p class="bigquote">I love you. Always cheering for you — Farzaan ❤️</p>
+    <button onclick="hearts()">Send some hearts 💞</button>
+  </section>
+
+  <footer class="footer">Made with love, just for Umra. ❤️ 🌷<br>— Farzaan</footer>
+</div>
+<script>
+const moodMessages={
+ pain:"I wish I could make the pain disappear, Baby. If it helps, try resting and a warm compress. Tell me what you need—I can listen, keep you company, or help arrange something comforting. ❤️",
+ sad:"It's okay to have a low day, Umra. You don't need to force a smile or explain everything. I'm here to listen without judging. Sending you a gentle hug. 🫂",
+ tired:"Then today's mission is simply to rest, my love. No pressure to do everything. I wish I could tuck you in and let you sleep peacefully. 🌙",
+ love:"Come here, my Baby… the biggest virtual hug, a forehead kiss, and a reminder that you are loved so, so much. 🫂💗"
+};
+const notes=[
+"Distance is just the space between us—not a measure of how much I love you. ❤️",
+"If I were there, I'd hold you close and let you rest against me. No words needed. 🫂",
+"You're my favourite person to care about. Even on days when you don't feel like yourself. 🌷",
+"Sending a little piece of my heart to wherever you are right now. I love you, Umra. 💌",
+"Close your eyes for a second and imagine my hand holding yours. I'm with you in spirit, Baby. 💗"
+];
+let noteIndex=0;
+function mood(key){document.getElementById('moodReply').textContent=moodMessages[key];}
+function sendHug(){hearts();document.getElementById('moodReply').textContent="Hug delivered! 🫂 Imagine Farzaan holding you close for as long as you need. 💗";}
+function surprise(){const box=document.getElementById('surpriseBox');box.style.display='block';box.textContent=notes[noteIndex%notes.length];noteIndex++;hearts();}
+function nextMessage(){const box=document.getElementById('surpriseBox');box.style.display='block';box.textContent=notes[noteIndex%notes.length];noteIndex++;}
+function hearts(){for(let i=0;i<14;i++){let e=document.createElement('span');e.className='confetti';e.textContent=['💗','💕','💖','🌷','✨'][Math.floor(Math.random()*5)];e.style.left=(Math.random()*92+4)+'vw';e.style.top=(Math.random()*70+20)+'vh';document.body.appendChild(e);setTimeout(()=>e.remove(),1600);}}
+</script>
+</body>
+</html>
